@@ -1,9 +1,16 @@
 (ns budget.web
   (:require [compojure.core :refer [defroutes GET]]
-            [ring.adapter.jetty :as ring]))
+            [ring.adapter.jetty :as ring]
+            [ring.middleware.defaults :refer :all]))
 
 (defroutes routes
-  (GET "/" [] "<h2>Hello world!</h2>"))
+  (GET "/" {{input :input} :params}
+   (str "<h2>Hello world! " input "</h2>")))
 
 (defn -main []
-  (ring/run-jetty #'routes {:port 5000 :join? false}))
+  (ring/run-jetty (wrap-defaults routes api-defaults) {:port 5000 :join? false}))
+
+;; For interactive development:
+;; (require 'budget.web)
+(.stop server)
+(def server (-main))
