@@ -8,9 +8,10 @@
    (str "<h2>Hello world! " input "</h2>")))
 
 (defn -main []
-  (ring/run-jetty (wrap-defaults routes api-defaults) {:port 5000 :join? false}))
+  (ring/run-jetty
+    (wrap-defaults routes api-defaults)
+    {:port 5000 :join? false}))
 
 ;; For interactive development:
-;; (require 'budget.web)
 (.stop server)
 (def server (-main))
