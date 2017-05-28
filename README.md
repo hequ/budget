@@ -15,3 +15,7 @@ For the first run you can use the official postgres docker image to set up the d
 ### Connecting to dev database with psql:
 
 `docker run -it --rm --link budget-postgres:postgres postgres psql -h postgres -U postgres budget`
+
+### Test commands for quick testing
+
+`curl -H "Content-Type: application/json" -X POST -d '{"lol": "bal"}' http://localhost:5000/purchase`
