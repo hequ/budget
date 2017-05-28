@@ -8,6 +8,7 @@
                  [org.postgresql/postgresql "42.0.0"]
                  [ring/ring-jetty-adapter "1.5.1"]
                  [ring/ring-defaults "0.2.3"]
+                 [ring/ring-json "0.4.0"]
                  [compojure "1.5.2"]
                  [org.flywaydb/flyway-core "4.2.0"]
                  [proto-repl "0.3.1"]])
