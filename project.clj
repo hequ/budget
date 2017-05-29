@@ -11,4 +11,5 @@
                  [ring/ring-json "0.4.0"]
                  [compojure "1.5.2"]
                  [org.flywaydb/flyway-core "4.2.0"]
-                 [proto-repl "0.3.1"]])
+                 [proto-repl "0.3.1"]
+                 [com.mchange/c3p0 "0.9.5.2"]])
