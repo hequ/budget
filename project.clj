@@ -12,4 +12,6 @@
                  [compojure "1.5.2"]
                  [org.flywaydb/flyway-core "4.2.0"]
                  [proto-repl "0.3.1"]
-                 [com.mchange/c3p0 "0.9.5.2"]])
+                 [com.mchange/c3p0 "0.9.5.2"]
+                 [environ "1.1.0"]]
+  :plugins [[lein-environ "1.1.0"]])

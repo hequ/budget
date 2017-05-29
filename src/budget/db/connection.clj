@@ -1,5 +1,6 @@
 (ns budget.db.connection
-   (:import com.mchange.v2.c3p0.ComboPooledDataSource))
+  (:require [environ.core :refer [env]])
+  (:import com.mchange.v2.c3p0.ComboPooledDataSource))
 
 (def db-spec
   {:classname "org.postgresql.Driver"
@@ -7,8 +8,8 @@
    :dbname "budget"
    :host "localhost"
    :port 5432
-   :user ""
-   :password ""})
+   :user (env :db-user)
+   :password (env :db-pass)})
 
 (defn pool [spec]
   (let [cpds (doto (ComboPooledDataSource.)
