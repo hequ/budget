@@ -3,7 +3,7 @@
   (:import com.mchange.v2.c3p0.ComboPooledDataSource))
 
 (def db-spec
-  {:classname "org.postgresql.Driver"
+  {:subprotocol "postgresql"
    :dbtype "postgresql"
    :dbname "budget"
    :host "localhost"
@@ -14,7 +14,7 @@
 (defn pool [spec]
   (let [cpds (doto (ComboPooledDataSource.)
                 (.setDriverClass (:classname spec))
-                (.setJdbcUrl (str "jdbc:"
+                (.setJdbcUrl (str "jdbc:postgresql://"
                               (:host spec)
                               ":"
                               (:port spec)
