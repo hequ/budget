@@ -1,4 +1,4 @@
-(ns budget.db.db)
+(ns budget.db.flyway)
 
 (:import [org.flywaydb.core Flyway])
 
