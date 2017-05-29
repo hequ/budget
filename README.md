@@ -2,6 +2,17 @@
 
 # Development
 
+## Environment
+
+This project uses environ to handle the environment variables. While developing, you should add `profiles.clj` file to the root of this project with the following contents:
+
+```
+{:dev {:env {:db-user "user"
+             :db-pass "pass"}}}
+```
+
+This way your environment is set while developing with REPL.
+
 ## Database
 
 Database schema is managed by flyway and the underlaying database is Postgresql.
