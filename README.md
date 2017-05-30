@@ -7,8 +7,12 @@
 This project uses environ to handle the environment variables. While developing, you should add `profiles.clj` file to the root of this project with the following contents:
 
 ```
-{:dev {:env {:db-user "user"
-             :db-pass "pass"}}}
+{:dev {:env {:db-name "budget"
+             :db-user "user"
+             :db-pass "pass"
+             :db-type "postgresql"
+             :host "localhost"
+             :port 5432}}}
 ```
 
 This way your environment is set while developing with REPL.
