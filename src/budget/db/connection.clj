@@ -1,25 +1,17 @@
 (ns budget.db.connection
-  (:require [environ.core :refer [env]])
+  (:require [environ.core :refer [env]]
+            [budget.db.datasource :refer [jdbc-url]])
   (:import com.mchange.v2.c3p0.ComboPooledDataSource))
 
 (def db-spec
-  {:subprotocol "postgresql"
-   :dbtype "postgresql"
-   :dbname "budget"
-   :host "localhost"
-   :port 5432
-   :user (env :db-user)
-   :password (env :db-pass)})
+  {:user (env :db-user)
+   :password (env :db-pass)
+   :classname "org.postgresql.Driver"})
 
 (defn pool [spec]
   (let [cpds (doto (ComboPooledDataSource.)
                 (.setDriverClass (:classname spec))
-                (.setJdbcUrl (str "jdbc:postgresql://"
-                              (:host spec)
-                              ":"
-                              (:port spec)
-                              "/"
-                              (:dbname spec)))
+                (.setJdbcUrl (jdbc-url))
                 (.setUser (:user spec))
                 (.setPassword (:password spec))
                 (.setMaxIdleTimeExcessConnections (* 30 60))
